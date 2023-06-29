@@ -91,7 +91,6 @@ public:
 //Функция
 double distance(const Point& A, const Point& B)
 {
-	
 	double x_distance = A.get_x() - B.get_x();
 	double y_distance = A.get_y() - B.get_y();
 	double distance = sqrt(x_distance * x_distance + y_distance * y_distance);
@@ -101,6 +100,8 @@ double distance(const Point& A, const Point& B)
 //#define STRUCT_POINT
 //#define CONSTRACTOR_CHECK
 //#define DISTANCE_CHECK
+//#define ASSIGNMENT_CHECK
+
 
 void main()
 {
@@ -167,6 +168,7 @@ void main()
 
 #endif // DISTANCE_CHECK
 
+#ifdef ASSIGNMENT_CHECK
 
 	int a, b, c;
 	a = b = c = 0;
@@ -179,4 +181,7 @@ void main()
 	A.print();
 	B.print();
 	C.print();
+#endif // #define ASSIGNMENT_CHECK
+
+
 } 
