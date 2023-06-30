@@ -225,6 +225,54 @@ Fraction operator/(const Fraction& left, const Fraction& right)
 	return left * right.inverted();
 }
 
+
+bool operator==(Fraction left, Fraction right)
+{
+	left.to_improper();
+	right.to_improper();
+	/*if (left.get_numerator() * right.get_denominator() == right.get_numerator() * left.get_denominator())
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}*/
+	return left.get_numerator() * right.get_denominator() == right.get_numerator() * left.get_denominator();
+}
+bool operator!=(const Fraction& left, const Fraction& right)
+{
+	return !(left == right);
+}
+
+bool operator>(Fraction left, Fraction right)
+{
+	left.to_improper();
+	right.to_improper();
+	return
+		left.get_numerator() * right.get_denominator() >
+		right.get_numerator() * left.get_denominator();
+}
+
+bool operator<(Fraction left, Fraction right)
+{
+	left.to_improper();
+	right.to_improper();
+	return
+		left.get_numerator() * right.get_denominator() <
+		right.get_numerator() * left.get_denominator();
+}
+
+bool operator>=(const Fraction& left, const Fraction& right)
+{
+	return !(left < right);
+	//return left > right || left == right;
+}
+bool operator<=(const Fraction& left, const Fraction& right)
+{
+	return !(left > right);
+}
+
 std::ostream& operator << (std::ostream& os, const Fraction& obj)
 
 {
@@ -313,6 +361,15 @@ void main()
 #endif // DEBINCREMENT_DECREMENTUG
 
 
-	Fraction A(2, 3, 4);
-	cout << A << endl;
+	//Fraction A(2, 3, 4);
+	//cout << A << endl;
+	// 
+	//cout <<(2=2) <,endl;
+	 
+	//cout << (Fraction(1, 2) == Fraction(5, 10)) << endl;
+	//cout << (Fraction(1, 2) != Fraction(5, 11)) << endl;
+	//cout << (Fraction(1, 2) > Fraction(5, 11)) << endl;
+	//cout << (Fraction(1, 2) < Fraction(5, 10)) << endl;
+	cout << (Fraction(1, 2) >= Fraction(5, 10)) << endl;
+
 }
