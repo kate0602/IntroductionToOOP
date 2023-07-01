@@ -15,105 +15,140 @@ class String
 	char* str;   //adres stroki v dinamic pamyati
 
 public:
-	int get_size()const
-	{
-		return size;
-	}
+	int get_size()const;
 	     
-	const char* get_str()const
-	{
-		return str;
-	}
+	const char* get_str()const;
 	
-	char* get_str()
-	{
-		return str;
-	}
+	char* get_str();
 
 	                       // Constructor
 
-	explicit String(int size = 80) :size(size), str(new char[size] {})
-	{
-		
-		cout << "DefConstructor:\t" << this << endl;
-	}
+	explicit String(int size = 80);
 
-	String(const char str[]) :String(strlen(str) + 1)
-	{
-		
-		for (int i = 0; i < size; i++)this->str[i] = str[i];
-		cout << "Constructor:\t" << this << endl;
-	}
+	String(const char str[]);
 
-	String(const String& other) :String(other.str)
-	{
-		
-		cout << "CopyConstructor:" << this << endl;
-	}
+	String(const String& other);
 
 
-	String(String&& other) :size(other.size), str(other.str)
-	{
-		//Shallow copy:
-		other.size = 0;
-		other.str = nullptr;
-		cout << "MoveConstructor:\t" << this << endl;
-
-	}
-	~String()
-	{
-		delete[] this->str;
-	    cout << "Destructor: \t" << this << endl;
-
-	}
+	String(String&& other);
+	~String();
 	           
 	//            Operator
 
 
-	String& operator=(const String& other)
-	{
-		/*int a = 2;
-		int b = 3;
-		a = b;*/
-		if (this == &other)return *this;
-		delete[] str;
-		this->size = other.size;
-		this->str = new char[size] {};
-		for (int i = 0; i < size; i++)
-		{
-			this->str[i] = other.str[i];
-		}
-		cout << "CopyAssignment:\t" << this << endl;
-		return *this;
+	String& operator=(const String& other);
 
-	}
-
-	String& operator+=(const String& other)
-	{
-		return *this = *this + other;
-	}
-
-	char operator[](int i)const
-	{
-		return str[i];
-	}
+	String& operator+=(const String& other);
 	
+	char operator[](int i)const;
 
-	char& operator[](int i)
-	{
-		return str[i];
-	}
+	char& operator[](int i);
 
 
 	//MeTod
 
-	void print()const
-	{
-		cout << "Size " << size << endl;
-		cout << "Str " << str << endl;
-		
-	}
+	void print()const;
 };
+
+
+int String::get_size()const
+{
+	return size;
+}
+
+const char* String::get_str()const
+{
+	return str;
+}
+
+char* String::get_str()
+{
+	return str;
+}
+
+// Constructor
+
+String::String(int size) :size(size), str(new char[size] {})
+{
+
+	cout << "DefConstructor:\t" << this << endl;
+}
+
+String::String(const char str[]) :String(strlen(str) + 1)
+{
+
+	for (int i = 0; i < size; i++)this->str[i] = str[i];
+	cout << "Constructor:\t" << this << endl;
+}
+
+String::String(const String& other) :String(other.str)
+{
+
+	cout << "CopyConstructor:" << this << endl;
+}
+
+
+String::String(String&& other) :size(other.size), str(other.str)
+{
+	//Shallow copy:
+	other.size = 0;
+	other.str = nullptr;
+	cout << "MoveConstructor:\t" << this << endl;
+
+}
+String::~String()
+{
+	delete[] this->str;
+	cout << "Destructor: \t" << this << endl;
+
+}
+
+//            Operator
+
+
+String& String::operator=(const String& other)
+{
+	/*int a = 2;
+	int b = 3;
+	a = b;*/
+	if (this == &other)return *this;
+	delete[] str;
+	this->size = other.size;
+	this->str = new char[size] {};
+	for (int i = 0; i < size; i++)
+	{
+		this->str[i] = other.str[i];
+	}
+	cout << "CopyAssignment:\t" << this << endl;
+	return *this;
+
+}
+
+String& String::operator+=(const String& other)
+{
+	return *this = *this + other;
+}
+
+char String::operator[](int i)const
+{ 
+	return str[i];
+}
+
+
+char& String::operator[](int i)
+{
+	return str[i];
+}
+
+
+//MeTod
+
+void String::print()const
+{
+	cout << "Size " << size << endl;
+	cout << "Str " << str << endl;
+
+}
 
 
 String operator+(const String& left, const String& right)
