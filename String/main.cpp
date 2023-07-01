@@ -30,26 +30,24 @@ public:
 		return str;
 	}
 
-	// Constructor
+	                       // Constructor
 
 	explicit String(int size = 80) :size(size), str(new char[size] {})
 	{
-		//this->size = size;
-		//this->str = new char[size] {};
-		cout << "Constructor:\t" << this << endl;
+		
+		cout << "DefConstructor:\t" << this << endl;
 	}
 
-	String(const char str[]) :size(strlen(str) + 1), str(new char[size] {})
+	String(const char str[]) :String(strlen(str) + 1)
 	{
-		//this->size = strlen(str) + 1;	//Поскольку класс хранит размер в Байтах, +1 нужен для хранения NULL-terminator
-		//this->str = new char[size] {};	//Выделяем память под строку
+		
 		for (int i = 0; i < size; i++)this->str[i] = str[i];
 		cout << "Constructor:\t" << this << endl;
 	}
 
-	String(const String& other) :size(other.size), str(new char[size] {})
+	String(const String& other) :String(other.str)
 	{
-		for (int i = 0; i < size; i++)this->str[i] = other.str[i];
+		
 		cout << "CopyConstructor:" << this << endl;
 	}
 
@@ -172,6 +170,9 @@ void main()
 
 	str1 += str2;
 	cout << str1 << endl;
+
+	String str4 = str3;
+	cout << str4 << endl;
 
 
 #endif // HOME_WORK
