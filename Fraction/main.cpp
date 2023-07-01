@@ -67,6 +67,20 @@ public:
 		cout << "1ArgConstructor:    \t" << this << endl;
 	
 	}
+	
+	Fraction(double decimal)
+	{
+		decimal += 1e-10;
+		this->integer = decimal;	
+		decimal -= integer;			
+		//4 000 000 000
+		denominator = 1e9;	//Записываем максимально-возможный знаменатель
+		//1e10 = 1*10^10
+		numerator = decimal * denominator;	//вытаскиваем всю дробную часть в числитель
+		reduce();
+	}
+
+
 	Fraction(int numerator, int denominator)
 	{
 		this->integer = 0;
@@ -352,6 +366,8 @@ std::istream& operator>>(std::istream& is, Fraction& obj)
 //#define ISTREAM_OPERATOR
 //#define TYPE_CONVERSIONS_BASICS
 //#define CONVERSIONS_FROM_OTHER_TO_CLASS
+//#define CONVERSION_FROM_CLASS_TO_OTHER
+#define HOME_WORK_1G
 
 
 void main()
@@ -463,6 +479,7 @@ void main()
 	cout << B << endl;
 #endif // CONVERSIONS_FROM_OTHER_TO_CLASSUG
 
+#ifdef CONVERSION_FROM_CLASS_TO_OTHER
 	Fraction A(2, 3, 4);
 	//A.to_improper();
 	cout << A << endl;
@@ -472,6 +489,12 @@ void main()
 
 	double b = A;
 	cout << b << endl;
+#endif // CONVERSION_FROM_CLASS_TO_OTHER
+
+#ifdef HOME_WORK_1G
+	Fraction A = 2.75;
+	cout << A << endl;
+#endif // HOME_WORK_1G
 
 
 }
