@@ -1,10 +1,13 @@
-#include<iostream>
+Ôªø#include<iostream>
 using namespace std;
 
 using std::cin;
 using std::cout;
 using std::endl;
 
+
+/////////////////////////////////////////////////////////////////////
+////////////////           –æ–±—è–≤–ª–µ–Ω–∏–µ –∫–ª–∞—Å—Å–∞ - class declaretion
 class String;
 String operator+(const String& left, const String& right);
 
@@ -49,7 +52,16 @@ public:
 
 	void print()const;
 };
+/////////////////////////////////////////////////////////////////////
+////////////////           –ö–æ–Ω–µ—Ü –æ–±—è–≤–ª–µ–Ω–∏—è –∫–ª–∞—Å—Å–∞ - class declaretion
 
+
+
+//-----------------------------------------------------------------
+
+
+/////////////////////////////////////////////////////////////////////
+////////////////          –ù–∞—á–∞–ª–æ  –æ–ø—Ä–µ–¥–µ–ª–µ–Ω–∏—è  –∫–ª–∞—Å—Å–∞ - class Defenishion
 
 int String::get_size()const
 {
@@ -175,6 +187,9 @@ std::ostream& operator <<(std::ostream& os, const String& obj)
 
 }
 
+/////////////////////////////////////////////////////////////////////
+////////////////           –ö–æ–Ω–µ—Ü –æ–ø—Ä–µ–¥–µ–ª–µ–Ω–∏—è  –∫–ª–∞—Å—Å–∞ - class Defenishion
+
 #define HOME_WORK
 //#define CONSTRUCTORS_CALLING
 
@@ -223,10 +238,10 @@ void main()
 	String str3 = "Hello";//Single-Argument constructor 'const char*'
 	str3.print();
 
-	String str4();	//DefaultConstructor Õ≈¬Œ«ÃŒ∆≈ÕŒ ‚˚Á‚‡Ú¸ Ú‡ÍËÏ Ó·‡ÁÓÏ.
+	String str4();	//DefaultConstructor –ù–ï–í–û–ó–ú–û–ñ–ï–ù–û –≤—ã–∑–≤–∞—Ç—å —Ç–∞–∫–∏–º –æ–±—Ä–∞–∑–æ–º.
 
 	//str4.print();
-	//≈ÒÎË ÌÛÊÌÓ ˇ‚ÌÓ ‚˚Á‚‡Ú¸ ÍÓÌÒÚÛÍÚÓ ÔÓ ÛÏÓÎ˜‡ÌËË˛, ÚÓ ˝ÚÓ ÏÓÊÌÓ Ò‰ÂÎ‡Ú¸ Ú‡Í:
+	//–ï—Å–ª–∏ –Ω—É–∂–Ω–æ —è–≤–Ω–æ –≤—ã–∑–≤–∞—Ç—å –∫–æ–Ω—Å—Ç—Ä—É–∫—Ç–æ—Ä –ø–æ —É–º–æ–ª—á–∞–Ω–∏–∏—é, —Ç–æ —ç—Ç–æ –º–æ–∂–Ω–æ —Å–¥–µ–ª–∞—Ç—å —Ç–∞–∫:
 
 	String str5{};	//Default constructor
 	str5.print();
